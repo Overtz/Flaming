@@ -3,8 +3,6 @@ const { Client } = require('discord.js')
 const { readdirSync } = require('fs')
 const { join } = require('path')
 
-const config = require('../../config.json')
-
 const { connect } = require('mongoose')
 const Models = require('../database/models/Models')
 
