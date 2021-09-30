@@ -30,12 +30,10 @@ module.exports = class extends Command {
         const neko = new nekoApi();
         const image = (await neko.sfw.kiss()).url;
 
-        const emoji = this.client.emojis.cache.get('878900969805598811')
-
         const user = interaction.options.getMember('usuário')
         const userItsAuthor = 'Você não pode beijar á si mesmo.'
         const userError = 'Usuário mencionado não encontrado.'
-        const embed = new MessageEmbed().setTitle(`${emoji} ・ Kiss`).setColor('#FF0000').setDescription(`${interaction.member} beijou ${user}`).setImage(image).setTimestamp()
+        const embed = new MessageEmbed().setTitle(`💋 ・ Kiss`).setColor('#FF0000').setDescription(`${interaction.member} beijou ${user}`).setImage(image).setTimestamp()
         
         if (!user) {
             interaction.reply({ content: userError, ephemeral: true })
