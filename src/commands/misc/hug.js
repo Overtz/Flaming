@@ -42,7 +42,7 @@ module.exports = class extends Command {
         
         const nekoApi = require('nekos.life');
         const neko = new nekoApi();
-        const image = await neko.sfw.hug()["url"];
+        const image = (await neko.sfw.hug()).url;
         console.log(image)
 
         const user = interaction.options.getMember('usuário')
