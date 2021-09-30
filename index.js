@@ -10,6 +10,8 @@ app.get("/", (request, response) => {
 })
 app.listen(process.env.PORT);
 
+const { MessageEmbed } = require('discord.js')
+
 const client = new Client({
   intents: [
       'GUILDS',
@@ -25,5 +27,15 @@ const client = new Client({
       'DIRECT_MESSAGES',
   ]
 })
+
+process.on('unhandledRejection', (reason, promise) => {
+    var newError;
+    try {
+    newError = new MessageEmbed().setColor('RED').setTitle(`Report de Erro | unhandledRejection`).setDescription(`\`\`\`js\nPromise: ${promise} Reason: ${reason.stack}\`\`\``)
+    } catch(err) {
+      console.log('Erro', err)
+    }
+    client.channels.cache.get('892314829673594920').send({ embeds: [newError] }).catch(err => { })
+});
 
 client.login(process.env.TOKEN)
