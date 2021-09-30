@@ -26,22 +26,14 @@ module.exports = class extends Command {
 
         if (interaction.member.roles.cache.has(role)) return;
 
-        var list = [
-            'https://imgur.com/iclUiUN.gif',
-            'https://imgur.com/lYQt9rx.gif',
-            'https://imgur.com/w1TU5mR.gif',
-            'https://media2.giphy.com/media/G3va31oEEnIkM/giphy.gif',
-            'https://i.pinimg.com/originals/29/65/3a/29653ad6e372605c4c43c3c015f9e499.gif',
-            'http://3.bp.blogspot.com/-N5d6Gw2cDsI/UsIRQLfyyvI/AAAAAAAABwg/E_kae0NTlVQ/s1600/tumblr_mx5ltt9x9y1so28a4o1_500.gif'
-          ];
-        
-        var rand = list[Math.floor(Math.random() * list.length)];
+        const nekoApi = require('nekos.life');
+        const neko = new nekoApi();
+        const image = (await neko.sfw.kiss()).url;
+
         const user = interaction.options.getMember('usuário')
-        
         const userItsAuthor = 'Você não pode beijar á si mesmo.'
         const userError = 'Usuário mencionado não encontrado.'
-        const sucess = 'beijou'
-        const embed = new MessageEmbed().setTitle('<a:love:878900969805598811> ・ Kiss').setColor('#FF0000').setDescription(`${interaction.member} ${sucess} ${user}`).setImage(rand).setTimestamp()
+        const embed = new MessageEmbed().setTitle('<a:love:878900969805598811> ・ Kiss').setColor('#FF0000').setDescription(`${interaction.member} beijou ${user}`).setImage(image).setTimestamp()
         
         if (!user) {
             interaction.reply({ content: userError, ephemeral: true })
