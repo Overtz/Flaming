@@ -29,4 +29,3 @@ unmute | ✔️
 
 # Links
 - [Flaming Eyes](https://discord.gg/rzEdvZGA6z)
-- [Red Dragon Suporte](https://discord.gg/cGKhhGd8GD)
